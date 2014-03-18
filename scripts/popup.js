@@ -15,7 +15,11 @@ $('.grabber').click(function(){
 });
 
 $('.remove').click(function(){
-  removeAll();
+  if(confirm("Warning, proceeding will remove all bookmarks!")) {
+    removeAll();
+  } else {
+    console.log('aborted');
+  }
 });
 
 $('.personal-link').click(function(){
@@ -60,9 +64,8 @@ function syncList() {
 }
 
 function removeAll() {
-  storage.remove('group');
-
-  $('ul').empty();
+  // storage.remove('group');
+  // $('ul').empty();
 }
 
 function opentab() {
