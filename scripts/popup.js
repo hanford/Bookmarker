@@ -18,6 +18,10 @@ $('.remove').click(function(){
   removeAll();
 });
 
+$('.personal-link').click(function(){
+  chrome.tabs.create({url: "http://jackhanford.com"});
+});
+
 function urlGrab(){
   chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
     var url = arrayOfTabs[0].url;
