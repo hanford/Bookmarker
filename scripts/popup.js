@@ -15,11 +15,7 @@ $('.grabber').click(function(){
 });
 
 $('.remove').click(function(){
-  if(confirm("Warning, proceeding will remove all bookmarks!")) {
-    removeAll();
-  } else {
-    console.log('aborted');
-  }
+  removeAll();
 });
 
 $('.personal-link').click(function(){
@@ -30,8 +26,6 @@ function urlGrab(){
   chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
     var url = arrayOfTabs[0].url;
     var favIcon = arrayOfTabs[0].favIconUrl;
-    var randomNum = Math.random() * (1, 1000000);
-    var id = Math.round(randomNum);
 
     $('ul').append('<li>'+ '<img src="'+ favIcon +'">' + ' ' + url + '</li>');
 
@@ -39,11 +33,12 @@ function urlGrab(){
       var group = res['group'];
 
       // if new group
+      console.log(group);
       if (group === undefined) {
         group = [];
       }
 
-      var bookmark = {id: id, bookmark: url, fave: favIcon};
+      var bookmark = {bookmark: url, fave: favIcon};
 
       group.push(bookmark);
 
@@ -64,8 +59,33 @@ function syncList() {
 }
 
 function removeAll() {
-  // storage.remove('group');
-  // $('ul').empty();
+  storage.get('group', function(data) {
+
+    $('ul').empty();
+    var groupLength = data.group.length;
+    $('ul').empty();
+    var toDelete = [];
+
+    for (var i = 0; i < groupLength; i++) {
+      $('ul').append('<li>'+ '<input type="radio" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].bookmark + '</span>' + '</li>');
+    }
+
+    $('input').click(function(){
+      var redButton = $('.bttn-danger');
+      redButton.removeClass('.remove');
+      redButton.addClass('delete');
+      redButton.empty().append('Keep Selected');
+
+      var removeMe = $("input[type='radio']:checked").val();
+
+      toDelete.push(removeMe);
+      $('.delete').click(function(){
+        toDelete.push(removeMe);
+        data = data.group.splice(removeMe);
+        storage.set({'group': data});
+      })
+    });
+  })
 }
 
 function opentab() {
