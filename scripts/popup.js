@@ -15,6 +15,7 @@ $('.grabber').click(function(){
 });
 
 $('.remove').click(function(){
+  $('.remove').empty().append('Select to keep');
   removeAll();
 });
 
@@ -32,7 +33,6 @@ function urlGrab(){
     storage.get('group', function(res) {
       var group = res['group'];
 
-      // if new group
       console.log(group);
       if (group === undefined) {
         group = [];
@@ -53,7 +53,9 @@ function syncList() {
 
     var groupLength = data.group.length;
     for (var i = 0; i < groupLength; i++) {
-      $('ul').append('<li>'+ '<img src="'+ data.group[i].fave +'">'+ ' ' + '<span class="text-bump">' + data.group[i].bookmark + '</span>' + '</li>');
+      var url = data.group[i].bookmark;
+
+      $('ul').append('<li>'+ '<img src="'+ data.group[i].fave +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + url + '</a>' + '</li>');
     }
   })
 }
@@ -67,7 +69,7 @@ function removeAll() {
     var toDelete = [];
 
     for (var i = 0; i < groupLength; i++) {
-      $('ul').append('<li>'+ '<input type="radio" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].bookmark + '</span>' + '</li>');
+      $('ul').append('<li>'+ '<input type="checkbox" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].bookmark + '</span>' + '</li>');
     }
 
     $('input').click(function(){
@@ -76,13 +78,14 @@ function removeAll() {
       redButton.addClass('delete');
       redButton.empty().append('Keep Selected');
 
-      var removeMe = $("input[type='radio']:checked").val();
+      var removeMe = $("input[type='checkbox']:checked").val();
 
       toDelete.push(removeMe);
       $('.delete').click(function(){
         toDelete.push(removeMe);
         data = data.group.splice(removeMe);
         storage.set({'group': data});
+        syncList();
       })
     });
   })

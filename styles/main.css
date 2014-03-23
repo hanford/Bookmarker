@@ -35,7 +35,7 @@ li {
 }
 
 .half {
-  width: 49%;
+  width: 49.4%;
   display: inline-block;
 }
 
@@ -61,4 +61,9 @@ ul {
   -ms-transition: height .25s ease-in-out;
   -o-transition: height .25s ease-in-out;
   transition: height .25s ease-in-out;
+}
+
+.text-bump {
+  color: #111;
+  text-decoration: none;
 }
