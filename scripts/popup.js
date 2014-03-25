@@ -70,7 +70,7 @@ function removeAll() {
     var toDelete = [];
 
     for (var i = 0; i < groupLength; i++) {
-      $('ul').append('<li>'+ '<input type="checkbox" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].bookmark + '</span>' + '</li>');
+      $('ul').append('<li>'+ '<input type="checkbox" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].title + '</span>' + '</li>');
     }
 
     $('input').click(function(){
