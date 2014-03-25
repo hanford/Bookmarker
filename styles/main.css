@@ -8,17 +8,6 @@ html {
   font-size: 12px; 
 }
 
-.name {
-  float: right;
-  font-size: 10px;
-  padding: 5px;
-}
-
-.cursive {
-  font-family: 'Satisfy', cursive;
-  text-decoration: none;
-}
-
 .title-text {
   color: #555;
   font-size: 20px;
@@ -66,4 +55,13 @@ ul {
 .text-bump {
   color: #111;
   text-decoration: none;
+}
+
+.settings {
+  float: right;
+  cursor: pointer;
+}
+
+.settingsbin {
+  display: none;
 }

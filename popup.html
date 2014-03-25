@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <link href="styles/bttn.css" rel="stylesheet">
-      <link href="styles/main.css" rel="stylesheet">
+<head>
+  <link href="styles/bttn.css" rel="stylesheet">
+  <link href="styles/main.css" rel="stylesheet">
 
-      <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-  <div class="title-text">Bookmarker</div>
-  <ul>
-  </ul>
-    
-    <div class="container">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+  <div class="title-text">Bookmarker <small class="settings">Settings</small>
+  </div>
+  <div class="container">
+  <div id="main">
+    <ul>
+
+    </ul>
+
     <div>
       <button class="bttn bttn-primary bttn-block open">Open all in background</button>    
     </div>
-      <div class="half">
-        <button class="bttn bttn-success bttn-block grabber">Add</button>    
-      </div>
-      <div class="half">
-        <button class="bttn bttn-danger bttn-block remove">Remove</button>
-      </div>
-<!--       <div class="name">Made By: 
-        <span class="cursive">
-          <a class="personal-link" href="http://jackhanford.com">Jack Hanford</a>
-        </span>
-      </div>
-    </div> -->
-    <script src="scripts/jquery.js"></script>
+
+    <div class="half">
+      <button class="bttn bttn-success bttn-block grabber">Add</button>    
+    </div>
+
+    <div class="half">
+      <button class="bttn bttn-danger bttn-block remove">Remove</button>
+    </div>
+  </div>
+  <div class="settingsbin">
+    <div>Export to text</div>
+    <div>Export to bookmarks</div>
+    <div>Tweet about</div>
+    <div>Report Bug</div>
+  </div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="scripts/popup.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   </body>
-</html>
+  </html>

@@ -23,6 +23,11 @@ $('.personal-link').click(function(){
   chrome.tabs.create({url: "http://jackhanford.com"});
 });
 
+$('.settings').click(function() {
+  $('#main').toggle();
+  $('.settingsbin').toggle();
+});
+
 function urlGrab(){
   chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
     var url = arrayOfTabs[0].url;
