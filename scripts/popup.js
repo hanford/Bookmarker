@@ -27,8 +27,9 @@ function urlGrab(){
   chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
     var url = arrayOfTabs[0].url;
     var favIcon = arrayOfTabs[0].favIconUrl;
+    var title = arrayOfTabs[0].title;
 
-    $('ul').append('<li>'+ '<img src="'+ favIcon +'">' + ' ' + url + '</li>');
+    $('ul').append('<li>'+ '<img src="'+ favIcon +'">' + ' ' + title + '</li>');
 
     storage.get('group', function(res) {
       var group = res['group'];
@@ -38,7 +39,7 @@ function urlGrab(){
         group = [];
       }
 
-      var bookmark = {bookmark: url, fave: favIcon};
+      var bookmark = {bookmark: url, fave: favIcon, title: title};
 
       group.push(bookmark);
 
@@ -54,8 +55,9 @@ function syncList() {
     var groupLength = data.group.length;
     for (var i = 0; i < groupLength; i++) {
       var url = data.group[i].bookmark;
+      var title = data.group[i].title;
 
-      $('ul').append('<li>'+ '<img src="'+ data.group[i].fave +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + url + '</a>' + '</li>');
+      $('ul').append('<li>'+ '<img src="'+ data.group[i].fave +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');
     }
   })
 }
@@ -65,7 +67,6 @@ function removeAll() {
 
     $('ul').empty();
     var groupLength = data.group.length;
-    $('ul').empty();
     var toDelete = [];
 
     for (var i = 0; i < groupLength; i++) {
@@ -84,6 +85,7 @@ function removeAll() {
       $('.delete').click(function(){
         toDelete.push(removeMe);
         data = data.group.splice(removeMe);
+        console.log(data);
         storage.set({'group': data});
         syncList();
       })
