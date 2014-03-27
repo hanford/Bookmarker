@@ -15,7 +15,7 @@ $('.grabber').click(function(){
 });
 
 $('.remove').click(function(){
-  $('.remove').empty().append('Select to keep');
+  $('.remove').empty().append('Select URLs');
   removeAll();
 });
 
@@ -25,7 +25,7 @@ $('.personal-link').click(function(){
 
 $('.settings').click(function() {
   $('#main').toggle();
-  $('.settingsbin').toggle();
+  $('.settingspage').toggle();
 });
 
 function urlGrab(){
@@ -72,28 +72,18 @@ function removeAll() {
 
     $('ul').empty();
     var groupLength = data.group.length;
-    var toDelete = [];
 
     for (var i = 0; i < groupLength; i++) {
       $('ul').append('<li>'+ '<input type="checkbox" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].title + '</span>' + '</li>');
     }
 
-    $('input').click(function(){
-      var redButton = $('.bttn-danger');
-      redButton.removeClass('.remove');
-      redButton.addClass('delete');
-      redButton.empty().append('Keep Selected');
+    var checkbox = $('input[type="checkbox"]');
+    var redButton = $('.bttn-danger');
+    var deleteArray = [];
 
-      var removeMe = $("input[type='checkbox']:checked").val();
-
-      toDelete.push(removeMe);
-      $('.delete').click(function(){
-        toDelete.push(removeMe);
-        data = data.group.splice(removeMe);
-        console.log(data);
-        storage.set({'group': data});
-        syncList();
-      })
+    checkbox.click(function(){
+      var checked = parseInt($("input[type='checkbox']:checked").val());
+      console.log(data.group[checked]);
     });
   })
 }
