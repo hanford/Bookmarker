@@ -16,7 +16,7 @@ $('.grabber').click(function(){
 
 $('.remove').click(function(){
   $('.remove').empty().append('Select URLs');
-  removeAll();
+  removeObj();
 });
 
 $('.personal-link').click(function(){
@@ -61,17 +61,19 @@ function syncList() {
     for (var i = 0; i < groupLength; i++) {
       var url = data.group[i].bookmark;
       var title = data.group[i].title;
+      var faveSrc = data.group[i].fave;
 
-      $('ul').append('<li>'+ '<img src="'+ data.group[i].fave +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');
+      $('ul').append('<li>'+ '<img src="'+ faveSrc +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');
     }
   })
 }
 
-function removeAll() {
+function removeObj() {
   storage.get('group', function(data) {
+    var group = data['group'];
 
     $('ul').empty();
-    var groupLength = data.group.length;
+    var groupLength = group.length;
 
     for (var i = 0; i < groupLength; i++) {
       $('ul').append('<li>'+ '<input type="checkbox" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].title + '</span>' + '</li>');
@@ -79,11 +81,11 @@ function removeAll() {
 
     var checkbox = $('input[type="checkbox"]');
     var redButton = $('.bttn-danger');
-    var deleteArray = [];
 
     checkbox.click(function(){
-      var checked = parseInt($("input[type='checkbox']:checked").val());
-      console.log(data.group[checked]);
+      var checked = $("input[type='checkbox']:checked").val();
+      delete group[checked];
+      storage.set({'group': group});
     });
   })
 }
