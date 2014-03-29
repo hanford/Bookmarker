@@ -15,17 +15,11 @@ $('.grabber').click(function(){
 });
 
 $('.remove').click(function(){
-  $('.remove').empty().append('Select URLs');
   removeObj();
 });
 
-$('.personal-link').click(function(){
-  chrome.tabs.create({url: "http://jackhanford.com"});
-});
-
 $('.settings').click(function() {
-  $('#main').toggle();
-  $('.settingspage').toggle();
+  chrome.tabs.create({url: "new.html"});
 });
 
 function urlGrab(){
@@ -39,7 +33,6 @@ function urlGrab(){
     storage.get('group', function(res) {
       var group = res['group'];
 
-      console.log(group);
       if (group === undefined) {
         group = [];
       }
@@ -85,7 +78,9 @@ function removeObj() {
     checkbox.click(function(){
       var checked = $("input[type='checkbox']:checked").val();
       delete group[checked];
-      storage.set({'group': group});
+      storage.set({'group': group}); 
+      $('ul').empty();
+      syncList();
     });
   })
 }

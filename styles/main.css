@@ -10,7 +10,16 @@ html {
   font-family: 'Montserrat', sans-serif;
   max-width: 300px;
   font-size: 12px; 
+}
 
+.ext {
+  min-width: 600px;
+  font-family: 'Montserrat', sans-serif;
+  max-width: 600px;
+  padding-top: 60px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title-text {
@@ -73,9 +82,12 @@ ul {
   border: 1px solid #D0D0D0;
   border-radius: 4px;
   padding: 3px;
-
 }
 
 .settingspage {
   display: none;
+}
+
+.personal-link {
+  cursor: pointer;
 }
