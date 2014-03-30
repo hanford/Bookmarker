@@ -91,3 +91,8 @@ ul {
 .personal-link {
   cursor: pointer;
 }
+
+.bttn-padding {
+  position: relative;
+  top: 25px;
+}
