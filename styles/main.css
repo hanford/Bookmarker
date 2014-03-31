@@ -103,3 +103,20 @@ ul {
 .center {
   text-align: center;
 }
+
+.none {
+  display: none;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.results-list {
+  text-indent: 10px;
+}
+
+.folder {
+  padding-top: 10px;
+  text-decoration: underline;
+}

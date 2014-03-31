@@ -19,7 +19,7 @@ $('.remove').click(function(){
 });
 
 $('.settings').click(function() {
-  chrome.tabs.create({url: "new.html"});
+  chrome.tabs.create({url: "settings.html"});
 });
 
 function urlGrab(){

@@ -1,6 +1,6 @@
 {
     "name": "Bookmarker",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "Jack Hanford",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
@@ -10,7 +10,8 @@
     },
     "permissions": [
         "storage",
-        "tabs"
+        "tabs",
+        "bookmarks"
     ],
     "default_locale": "en",
     "background": {
