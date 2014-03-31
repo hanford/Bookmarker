@@ -28,7 +28,7 @@ function urlGrab(){
     var favIcon = arrayOfTabs[0].favIconUrl;
     var title = arrayOfTabs[0].title;
 
-    $('ul').append('<li>'+ '<img src="'+ favIcon +'">' + ' ' + title + '</li>');
+    $('ul').append('<li class="popup-li">'+ '<img src="'+ favIcon +'">' + ' ' + title + '</li>');
 
     storage.get('group', function(res) {
       var group = res['group'];
@@ -56,7 +56,7 @@ function syncList() {
       var title = data.group[i].title;
       var faveSrc = data.group[i].fave;
 
-      $('ul').append('<li>'+ '<img src="'+ faveSrc +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');
+      $('ul').append('<li class="popup-li">'+ '<img src="'+ faveSrc +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');
     }
   })
 }
@@ -69,7 +69,7 @@ function removeObj() {
     var groupLength = group.length;
 
     for (var i = 0; i < groupLength; i++) {
-      $('ul').append('<li>'+ '<input type="checkbox" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].title + '</span>' + '</li>');
+      $('ul').append('<li class="popup-li">'+ '<input type="checkbox" value="'+[i]+'">' + '<span class="text-bump">' + data.group[i].title + '</span>' + '</li>');
     }
 
     var checkbox = $('input[type="checkbox"]');
