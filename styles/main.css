@@ -17,7 +17,6 @@ html {
   font-family: 'Montserrat', sans-serif;
   max-width: 600px;
   padding-top: 60px;
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
@@ -28,7 +27,7 @@ html {
   font-weight: 900;
 }
 
-li {
+.popup-li {
   list-style: none;
   overflow: hidden;
   white-space: nowrap;
@@ -95,4 +94,12 @@ ul {
 .bttn-padding {
   position: relative;
   top: 25px;
+}
+
+.ol {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
 }
