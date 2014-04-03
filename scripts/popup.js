@@ -55,7 +55,7 @@ function syncList() {
       var url = data.group[i].bookmark;
       var title = data.group[i].title;
       var faveSrc = data.group[i].fave;
-      if (faveSrc = "imported") {
+      if (faveSrc === undefined) {
         $('ul').append('<li class="popup-li">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + url + '</a>' + '</li>');
       } else {
       $('ul').append('<li class="popup-li">'+ '<img src="'+ faveSrc +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');

@@ -112,11 +112,25 @@ ul {
   font-style: italic;
 }
 
-.results-list {
-  text-indent: 10px;
+.folder {
+  max-width: 100%;
+  display: table-cell;
+  padding-right: 15px;
+  border: 1px solid rgba(255,255,255,.0);
+  border-radius: 4px;
+  padding: 3px;
 }
 
-.folder {
-  padding-top: 10px;
-  text-decoration: underline;
+.folder:hover {
+  border: 1px solid #D0D0D0;
+  cursor: pointer;
+}
+
+.folder img {
+  height: 50px;
+  width: 50px; 
+}
+
+.results-list {
+  text-align: left;
 }

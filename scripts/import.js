@@ -27,10 +27,10 @@ function importChrome() {
             }
 
             for (var i = 0; loopLength > i; i++) {
-              var bookmark = {bookmark: forData[urlList].children[i].url, title: 'imported', fave: 'imported'};
+              var bookmark = {bookmark: forData[urlList].children[i].url, title: forData[urlList].children[i].url};
               if (bookmark.bookmark != undefined) {
                 group.push(bookmark);
-                $('.results-list').append('<p>'+forData[urlList].children[i].url+'</p>')
+                $('.results-list').append('<div>'+forData[urlList].children[i].url+'</div>')
               }   
             }
             chrome.storage.sync.set({'group': group});
