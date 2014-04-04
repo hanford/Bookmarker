@@ -30,7 +30,7 @@ function importChrome() {
               var bookmark = {bookmark: forData[urlList].children[i].url, title: forData[urlList].children[i].url};
               if (bookmark.bookmark != undefined) {
                 group.push(bookmark);
-                $('.results-list').append('<div>'+forData[urlList].children[i].url+'</div>')
+                $('.results-list').append('<li>'+forData[urlList].children[i].url+'</li> <br/>')
               }   
             }
             chrome.storage.sync.set({'group': group});
