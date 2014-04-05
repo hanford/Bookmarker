@@ -1,6 +1,6 @@
 $('.importChrome').click(function(){
   importChrome();
-  $('.importChrome').attr('disabled');
+  $('.importChrome').attr('disabled', "disabled");
 });
 
 function importChrome() {
@@ -10,7 +10,7 @@ function importChrome() {
     data.forEach(function(data) {
       var length = data.children.length;
       if (length > 0) {
-        $('#results').append('<h3>Great, we found' +' '+ length+ ' ' + 'folders! Select which one you would like to import</h3>');
+        $('.results').append('<h3>Great, we found' +' '+ length+ ' ' + 'folders! Click one to import it.</h3>');
         var forData = data.children;
         for (var i = 0; length > i; i++) {
           $('.results').append('<div class="folder" value="'+[i]+'"><img src="images/datFold.png"> <br />' + forData[i].title + '<br />'+ forData[i].children.length + ' bookmarks' +' <br />');
