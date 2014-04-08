@@ -119,11 +119,19 @@ ul {
   border: 1px solid rgba(255,255,255,.0);
   border-radius: 4px;
   padding: 3px;
+  opacity: 0.4;
 }
 
 .folder:hover {
   border: 1px solid #D0D0D0;
   cursor: pointer;
+  opacity: 1;
+}
+
+.selected {
+  border: 1px solid #D0D0D0;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .folder img {
@@ -133,4 +141,12 @@ ul {
 
 .results-list {
   text-align: left;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
 }

@@ -10,18 +10,19 @@
   <title>Bookmarker</title>
 </head>
 <body>
-  <br />
   <div class="center">
-    <h1>Import (<span class="italics">Super experiemental!</span>)</h1>
-    <p><small>Feature not complete!! I have only tested importing subfolders, anything else and this probably won't work.</small></p>
-    <p>Clicking the button below will find the bookmarks in folders (<span class="italics">Bookmarks Bar, Mobile etc</span>) and try to import them.</p>
+    <h1>Import</h1>
+    <p><small>Importing bookmarks is a little tricky, to keep things simple, I am currently only supporting the chrome standard layout for bookmarks. (List of folders with bookmarks inside of them).</small></p>
+    <p class="instruction">Clicking the button below will find the bookmarks in folders (<span class="italics">Bookmarks Bar, Mobile etc</span>) and try to import them.</p>
     <button class="bttn bttn-primary importChrome">Import from Chrome</button>
-    <br />
     <div class="results none">
-      <ol class="results-list">
-
-      </ol>
     </div>
+    <ol class="results-list">
+
+    </ol>
+    <button class="importbttn bttn bttn-success none">Import Above Bookmarks</button>
+    <p class="none success italics">Success!</p>
+    <p class="none error italics">Error!</p>
   </div>
 </div>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

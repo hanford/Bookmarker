@@ -1,6 +1,7 @@
 $('.importChrome').click(function(){
+  $('.instruction').hide();
+  $('.importChrome').hide();
   importChrome();
-  $('.importChrome').attr('disabled', "disabled");
 });
 
 function importChrome() {
@@ -16,7 +17,12 @@ function importChrome() {
           $('.results').append('<div class="folder" value="'+[i]+'"><img src="images/datFold.png"> <br />' + forData[i].title + '<br />'+ forData[i].children.length + ' bookmarks' +' <br />');
         }
         var folder = $('.folder');
-        folder.click(function(){
+        folder.click(function() {
+          $('.results-list').empty();
+          $('.success').hide();
+          $('.error').hide();
+
+
           var urlList = this.getAttribute('value');
           var loopLength = forData[urlList].children.length;
           chrome.storage.sync.get('group', function(res) {
@@ -30,10 +36,22 @@ function importChrome() {
               var bookmark = {bookmark: forData[urlList].children[i].url, title: forData[urlList].children[i].url};
               if (bookmark.bookmark != undefined) {
                 group.push(bookmark);
-                $('.results-list').append('<li>'+forData[urlList].children[i].url+'</li> <br/>')
+                $('.results-list').append('<li>'+forData[urlList].children[i].url+'</li>');
               }   
             }
-            chrome.storage.sync.set({'group': group});
+
+            $('.importbttn').show();
+            $('.importbttn').click(function(){
+              var bmCount = $('ol').children();
+              if (bmCount.length === 0) {
+                alert('Unabled to import because the list is empty!');
+                $('.error').show();
+              } else {
+                chrome.storage.sync.set({'group': group});
+                $('.importbttn').attr('disabled', 'disabled');
+                $('.success').show();
+              }
+            })
           })
         })
       }
