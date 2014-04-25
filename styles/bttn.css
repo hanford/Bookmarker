@@ -12,7 +12,7 @@ button,
   padding: 0;
   text-align: left;
   text-decoration: none;
-  text-indent: 0; 
+  text-indent: 0;
 }
 
 .bttn {
@@ -23,35 +23,35 @@ button,
   text-transform: none;
   outline: none;
   cursor: pointer;
-  font-weight: 600; 
+  font-weight: 600;
 }
 
 .bttn:hover {
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.27);
-  transition: all 0.1s ease-in-out; 
+  transition: all 0.1s ease-in-out;
 }
 
 .bttn:active {
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.125); 
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.125);
 }
 
 .bttn-splat:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 3px;
-  outline: 5px solid #c7dcfc; 
+  outline: 5px solid #c7dcfc;
 }
 
 .bttn-small {
   padding: 2px 8px;
-  font-size: 12px; 
+  font-size: 12px;
 }
 
 .bttn-large {
   padding: 10px 16px;
   font-size: 18px;
-  font-weight: 900; 
+  font-weight: 900;
 }
 
 .bttn-block {
@@ -59,7 +59,7 @@ button,
   margin-right: auto;
   margin-left: auto;
   margin-top: 3px;
-  text-align: center; 
+  text-align: center;
 }
 
 .bttn-primary,
@@ -69,47 +69,47 @@ button,
   background-color: #3276b1; }
 
 .bttn-primary:hover {
-  background-color: #428bca; 
+  background-color: #428bca;
 }
 
 .bttn-success,
 .bttn-success[disabled]:hover,
 .bttn-success[disabled]:active {
   color: white;
-  background-color: #47a447; 
+  background-color: #47a447;
 }
 
 .bttn-success:hover {
-  background-color: #5cb85c; 
+  background-color: #5cb85c;
 }
 
 .bttn-info,
 .bttn-info[disabled]:hover,
 .bttn-info[disabled]:active {
   color: white;
-  background-color: #39b3d7; 
+  background-color: #39b3d7;
 }
 
 .bttn-info:hover {
-  background-color: #5bc0de; 
+  background-color: #5bc0de;
 }
 
 .bttn-danger,
 .bttn-danger[disabled]:hover,
 .bttn-danger[disabled]:active {
   color: white;
-  background-color: #d2322d; 
+  background-color: #d2322d;
 }
 
 .bttn-danger:hover {
-  background-color: #d9534f; 
+  background-color: #d9534f;
 }
 
 .bttn-warning,
 .bttn-warning[disabled]:hover,
 .bttn-warning[disabled]:active {
   color: white;
-  background-color: #ed9c28; 
+  background-color: #ed9c28;
 }
 
 .bttn-warning:hover {
