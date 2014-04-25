@@ -150,3 +150,7 @@ ul {
 .error {
   color: red;
 }
+
+.settingsTab {
+  text-align: center;
+}

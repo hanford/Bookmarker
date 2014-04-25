@@ -28,13 +28,13 @@
   },
   "commands": {
     "Open All": {
-      "suggested_key": { "default": "Ctrl+Shift+K" },
+      "suggested_key": { "default": "Ctrl+Shift+X" },
       "description": "Open Bookmarks in the background"
     },
     "_execute_browser_action": {
       "suggested_key": {
-        "default": "Ctrl+Shift+K",
-        "mac": "MacCtrl+Shift+K"
+        "default": "Ctrl+Shift+X",
+        "mac": "MacCtrl+Shift+X"
       }
     }
   }

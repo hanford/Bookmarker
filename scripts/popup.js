@@ -19,8 +19,10 @@ $('.remove').click(function(){
 });
 
 $('.settings').click(function() {
-  chrome.tabs.create({url: "settings.html"});
+  $('.settingsTab').toggle();
+  $('.main').toggle();
 });
+
 
 function urlGrab(){
   chrome.tabs.query({active: true, currentWindow: true}, function(arrayOfTabs) {
@@ -58,7 +60,7 @@ function syncList() {
       if (faveSrc === undefined) {
         $('ul').append('<li class="popup-li">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + url + '</a>' + '</li>');
       } else {
-      $('ul').append('<li class="popup-li">'+ '<img src="'+ faveSrc +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');
+        $('ul').append('<li class="popup-li">'+ '<img src="'+ faveSrc +'">'+ ' ' + '<a class="text-bump" href="' + url + '" target="_blank">' + title + '</a>' + '</li>');
       }
     }
   })
