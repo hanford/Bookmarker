@@ -22,7 +22,6 @@ function importChrome() {
           $('.success').hide();
           $('.error').hide();
 
-
           var urlList = this.getAttribute('value');
           var loopLength = forData[urlList].children.length;
           chrome.storage.sync.get('group', function(res) {
@@ -33,6 +32,10 @@ function importChrome() {
             }
 
             for (var i = 0; loopLength > i; i++) {
+              // Below is the code for folders, will touch later //
+              if (forData[urlList].children[i].children != undefined) {
+                console.log(forData[urlList].children[i].children);
+              }
               var bookmark = {bookmark: forData[urlList].children[i].url, title: forData[urlList].children[i].url};
               if (bookmark.bookmark != undefined) {
                 group.push(bookmark);
