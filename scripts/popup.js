@@ -23,8 +23,19 @@ $('.remove').click(function(){
 $('.settings').click(function() {
   $('.settingsTab').toggle();
   $('.main').toggle();
-  $('ul').empty();
 });
+
+$('.removeEm').click(function(){
+    destroy();
+    $('ul').empty();
+});
+
+function destroy() {
+  storage.get('group', function(res) {
+    var group = [];
+    storage.set({'group': group});
+  })
+}
 
 
 function urlGrab(){
