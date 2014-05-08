@@ -4,6 +4,8 @@ var storage = chrome.storage.sync;
 
 $(document).ready(function(){
   syncList();
+
+  $(".tip").tips();
 });
 
 $('.open').click(function(){
@@ -21,6 +23,7 @@ $('.remove').click(function(){
 $('.settings').click(function() {
   $('.settingsTab').toggle();
   $('.main').toggle();
+  $('ul').empty();
 });
 
 
